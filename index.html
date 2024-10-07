@@ -1,0 +1,73 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi! I have something important to tell you...</h1>
+    <button onclick="continueFirst()">Press to continue...</button>
+
+    <div id="step2" style="display:none;">
+        <p>So, there's been something on my mind for a while.</p>
+        <button onclick="continueSecond()">Press to continue...</button>
+    </div>
+
+    <div id="step3" style="display:none;">
+        <p>I can't keep it to myself anymore....</p>
+        <button onclick="continueThird()">Press to continue...</button>
+    </div>
+
+    <div id="step4" style="display:none;">
+        <p>I really, really like you! If you trust me,i don't leave your hand.💖</p>
+        <label>Would you like to be with me? (yes/no):</label><br>
+        <input type="text" id="response" placeholder="Enter yes or no">
+        <button onclick="getResponse()">Submit</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        function continueFirst() {
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        function continueSecond() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'block';
+        }
+
+        function continueThird() {
+            document.getElementById('step3').style.display = 'none';
+            document.getElementById('step4').style.display = 'block';
+        }
+
+        function getResponse() {
+            var response = document.getElementById('response').value.toLowerCase().trim();
+            var output = document.getElementById('output');
+
+            if (response === 'yes') {
+                output.innerHTML = "Yay! I'm so happy to hear that! 😄💞";
+            } else if (response === 'no') {
+                output.innerHTML = "I understand, and I respect your feelings. 😔 Let's still be friends!";
+            } else {
+                output.innerHTML = "I'll give you some more time to think about it! 😊";
+            }
+        }
+    </script>
+</body>
+</html>
